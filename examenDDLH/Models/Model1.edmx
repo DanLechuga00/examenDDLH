@@ -1,0 +1,124 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="examenModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="segempleadoscat">
+          <Key>
+            <PropertyRef Name="codigoEmpleado" />
+          </Key>
+          <Property Name="codigoEmpleado" Type="int" Nullable="false" />
+          <Property Name="nombreUsuario" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="paterno" Type="varchar" MaxLength="15" Nullable="false" />
+          <Property Name="materno" Type="varchar" MaxLength="15" Nullable="false" />
+          <Property Name="nombre" Type="varchar" MaxLength="15" Nullable="false" />
+          <Property Name="puesto" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="codigoRol" Type="int" Nullable="false" />
+          <Property Name="fechaAlta" Type="date" />
+          <Property Name="fechaNacimiento" Type="date" />
+          <Property Name="sexo" Type="char" MaxLength="1" Nullable="false" />
+          <Property Name="estatus" Type="char" MaxLength="1" Nullable="false" />
+          <Property Name="codigoTiendaAsignada" Type="int" Nullable="false" />
+          <Property Name="password" Type="varbinary" MaxLength="100" Nullable="false" />
+          <Property Name="vencePassword" Type="tinyint" Nullable="false" />
+          <Property Name="diasCambioPassword" Type="int" Nullable="false" />
+          <Property Name="fechaCambioPassword" Type="datetime" />
+          <Property Name="venceUsuario" Type="tinyint" Nullable="false" />
+          <Property Name="fechaVencimiento" Type="date" Nullable="false" />
+          <Property Name="codigoEmpleadoActualizo" Type="int" Nullable="false" />
+          <Property Name="fechaActualizacion" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityContainer Name="examenModelStoreContainer">
+          <EntitySet Name="segempleadoscat" EntityType="Self.segempleadoscat" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="examenModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="segempleadoscat">
+          <Key>
+            <PropertyRef Name="codigoEmpleado" />
+          </Key>
+          <Property Name="codigoEmpleado" Type="Int32" Nullable="false" />
+          <Property Name="nombreUsuario" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="paterno" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="materno" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="nombre" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="puesto" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="codigoRol" Type="Int32" Nullable="false" />
+          <Property Name="fechaAlta" Type="DateTime" Precision="0" />
+          <Property Name="fechaNacimiento" Type="DateTime" Precision="0" />
+          <Property Name="sexo" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="estatus" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="codigoTiendaAsignada" Type="Int32" Nullable="false" />
+          <Property Name="password" Type="Binary" MaxLength="100" FixedLength="false" Nullable="false" />
+          <Property Name="vencePassword" Type="Byte" Nullable="false" />
+          <Property Name="diasCambioPassword" Type="Int32" Nullable="false" />
+          <Property Name="fechaCambioPassword" Type="DateTime" Precision="3" />
+          <Property Name="venceUsuario" Type="Byte" Nullable="false" />
+          <Property Name="fechaVencimiento" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="codigoEmpleadoActualizo" Type="Int32" Nullable="false" />
+          <Property Name="fechaActualizacion" Type="DateTime" Nullable="false" Precision="3" />
+        </EntityType>
+        <EntityContainer Name="examenEntities2" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="segempleadoscat" EntityType="Self.segempleadoscat" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="examenModelStoreContainer" CdmEntityContainer="examenEntities2">
+          <EntitySetMapping Name="segempleadoscat">
+            <EntityTypeMapping TypeName="examenModel.segempleadoscat">
+              <MappingFragment StoreEntitySet="segempleadoscat">
+                <ScalarProperty Name="codigoEmpleado" ColumnName="codigoEmpleado" />
+                <ScalarProperty Name="nombreUsuario" ColumnName="nombreUsuario" />
+                <ScalarProperty Name="paterno" ColumnName="paterno" />
+                <ScalarProperty Name="materno" ColumnName="materno" />
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
+                <ScalarProperty Name="puesto" ColumnName="puesto" />
+                <ScalarProperty Name="codigoRol" ColumnName="codigoRol" />
+                <ScalarProperty Name="fechaAlta" ColumnName="fechaAlta" />
+                <ScalarProperty Name="fechaNacimiento" ColumnName="fechaNacimiento" />
+                <ScalarProperty Name="sexo" ColumnName="sexo" />
+                <ScalarProperty Name="estatus" ColumnName="estatus" />
+                <ScalarProperty Name="codigoTiendaAsignada" ColumnName="codigoTiendaAsignada" />
+                <ScalarProperty Name="password" ColumnName="password" />
+                <ScalarProperty Name="vencePassword" ColumnName="vencePassword" />
+                <ScalarProperty Name="diasCambioPassword" ColumnName="diasCambioPassword" />
+                <ScalarProperty Name="fechaCambioPassword" ColumnName="fechaCambioPassword" />
+                <ScalarProperty Name="venceUsuario" ColumnName="venceUsuario" />
+                <ScalarProperty Name="fechaVencimiento" ColumnName="fechaVencimiento" />
+                <ScalarProperty Name="codigoEmpleadoActualizo" ColumnName="codigoEmpleadoActualizo" />
+                <ScalarProperty Name="fechaActualizacion" ColumnName="fechaActualizacion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Ninguno" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

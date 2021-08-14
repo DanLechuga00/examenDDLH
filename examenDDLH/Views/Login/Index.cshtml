@@ -1,0 +1,33 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    List<SelectListItem> items = (List<SelectListItem>)ViewBag.itemst;
+
+}
+
+<h2>Index : Login</h2>
+
+<div class="row">
+    <div class="col-md-12">
+        @using (Html.BeginForm())
+        {
+            if (items != null)
+            {
+                @Html.DropDownList("tiendas", items, new { @class = "form-control" });
+                @Html.DropDownList("usuarios", new SelectList(string.Empty, "Value", "Text"), "Selecciona el usuario", new { style = "width:250px", @class = "form-control" })
+            }
+
+            @*        , "SeleccionaTienda", new { @class = "form-control" } @Html.DropDownList("tiendas", new SelectList(string.Empty, "Value", "Text"), "Selecciona la Tienda", new { style = "width:250px", @class = "form-control" }) );*@
+
+
+        }
+
+    
+
+
+        @*@Html.DropDownList("datos", itemse, "Selecciona el usuario", new { @class = "form-control" })*@
+
+
+    </div>
+</div>
+

@@ -1,0 +1,169 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="examenModel1.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="gentiendascat">
+          <Key>
+            <PropertyRef Name="codigoTienda" />
+          </Key>
+          <Property Name="codigoTienda" Type="int" Nullable="false" />
+          <Property Name="codigoMarca" Type="int" />
+          <Property Name="descripcionTienda" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="estatus" Type="char" MaxLength="1" Nullable="false" />
+          <Property Name="tipo" Type="char" MaxLength="1" Nullable="false" />
+          <Property Name="direccion" Type="varchar" MaxLength="35" Nullable="false" />
+          <Property Name="colonia" Type="varchar" MaxLength="35" Nullable="false" />
+          <Property Name="referencia" Type="varchar" MaxLength="35" Nullable="false" />
+          <Property Name="ciudad" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="codigoEstado" Type="int" Nullable="false" />
+          <Property Name="codigoPostal" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="telefono1" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="telefono2" Type="varchar" MaxLength="18" Nullable="false" />
+          <Property Name="descripcionCorta" Type="varchar" MaxLength="8" Nullable="false" />
+          <Property Name="fechaApertura" Type="date" Nullable="false" />
+          <Property Name="fechaCierre" Type="date" Nullable="false" />
+          <Property Name="tiendaBodega" Type="char" MaxLength="1" Nullable="false" />
+          <Property Name="centroDeDistribucion" Type="int" Nullable="false" />
+          <Property Name="distrito" Type="int" Nullable="false" />
+          <Property Name="zona" Type="int" Nullable="false" />
+          <Property Name="codigoImpuesto" Type="varchar" MaxLength="6" Nullable="false" />
+          <Property Name="ipAdmin" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="ipImpresora" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="servidor" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="baseDatos" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="usuarioBaseDatos" Type="varbinary" MaxLength="100" Nullable="false" />
+          <Property Name="passwordBaseDatos" Type="varbinary" MaxLength="100" Nullable="false" />
+          <Property Name="gerente" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="supervisor" Type="varchar" MaxLength="40" Nullable="false" />
+          <Property Name="emailSupervisor" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="regional" Type="varchar" MaxLength="40" Nullable="false" />
+          <Property Name="emailRegional" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="latitud" Type="numeric" Precision="9" Scale="6" Nullable="false" />
+          <Property Name="longitud" Type="numeric" Precision="9" Scale="6" Nullable="false" />
+          <Property Name="fechaActualizacion" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityContainer Name="examenModel1StoreContainer">
+          <EntitySet Name="gentiendascat" EntityType="Self.gentiendascat" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="examenModel1" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="gentiendascat">
+          <Key>
+            <PropertyRef Name="codigoTienda" />
+          </Key>
+          <Property Name="codigoTienda" Type="Int32" Nullable="false" />
+          <Property Name="codigoMarca" Type="Int32" />
+          <Property Name="descripcionTienda" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="estatus" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="tipo" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="direccion" Type="String" MaxLength="35" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="colonia" Type="String" MaxLength="35" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="referencia" Type="String" MaxLength="35" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ciudad" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="codigoEstado" Type="Int32" Nullable="false" />
+          <Property Name="codigoPostal" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="telefono1" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="telefono2" Type="String" MaxLength="18" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="descripcionCorta" Type="String" MaxLength="8" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="fechaApertura" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="fechaCierre" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="tiendaBodega" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="centroDeDistribucion" Type="Int32" Nullable="false" />
+          <Property Name="distrito" Type="Int32" Nullable="false" />
+          <Property Name="zona" Type="Int32" Nullable="false" />
+          <Property Name="codigoImpuesto" Type="String" MaxLength="6" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ipAdmin" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ipImpresora" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="servidor" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="baseDatos" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="usuarioBaseDatos" Type="Binary" MaxLength="100" FixedLength="false" Nullable="false" />
+          <Property Name="passwordBaseDatos" Type="Binary" MaxLength="100" FixedLength="false" Nullable="false" />
+          <Property Name="gerente" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="supervisor" Type="String" MaxLength="40" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="emailSupervisor" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="regional" Type="String" MaxLength="40" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="emailRegional" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="latitud" Type="Decimal" Precision="9" Scale="6" Nullable="false" />
+          <Property Name="longitud" Type="Decimal" Precision="9" Scale="6" Nullable="false" />
+          <Property Name="fechaActualizacion" Type="DateTime" Nullable="false" Precision="3" />
+        </EntityType>
+        <EntityContainer Name="examenEntities1" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="gentiendascat" EntityType="Self.gentiendascat" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="examenModel1StoreContainer" CdmEntityContainer="examenEntities1">
+          <EntitySetMapping Name="gentiendascat">
+            <EntityTypeMapping TypeName="examenModel1.gentiendascat">
+              <MappingFragment StoreEntitySet="gentiendascat">
+                <ScalarProperty Name="codigoTienda" ColumnName="codigoTienda" />
+                <ScalarProperty Name="codigoMarca" ColumnName="codigoMarca" />
+                <ScalarProperty Name="descripcionTienda" ColumnName="descripcionTienda" />
+                <ScalarProperty Name="estatus" ColumnName="estatus" />
+                <ScalarProperty Name="tipo" ColumnName="tipo" />
+                <ScalarProperty Name="direccion" ColumnName="direccion" />
+                <ScalarProperty Name="colonia" ColumnName="colonia" />
+                <ScalarProperty Name="referencia" ColumnName="referencia" />
+                <ScalarProperty Name="ciudad" ColumnName="ciudad" />
+                <ScalarProperty Name="codigoEstado" ColumnName="codigoEstado" />
+                <ScalarProperty Name="codigoPostal" ColumnName="codigoPostal" />
+                <ScalarProperty Name="telefono1" ColumnName="telefono1" />
+                <ScalarProperty Name="telefono2" ColumnName="telefono2" />
+                <ScalarProperty Name="descripcionCorta" ColumnName="descripcionCorta" />
+                <ScalarProperty Name="fechaApertura" ColumnName="fechaApertura" />
+                <ScalarProperty Name="fechaCierre" ColumnName="fechaCierre" />
+                <ScalarProperty Name="tiendaBodega" ColumnName="tiendaBodega" />
+                <ScalarProperty Name="centroDeDistribucion" ColumnName="centroDeDistribucion" />
+                <ScalarProperty Name="distrito" ColumnName="distrito" />
+                <ScalarProperty Name="zona" ColumnName="zona" />
+                <ScalarProperty Name="codigoImpuesto" ColumnName="codigoImpuesto" />
+                <ScalarProperty Name="ipAdmin" ColumnName="ipAdmin" />
+                <ScalarProperty Name="ipImpresora" ColumnName="ipImpresora" />
+                <ScalarProperty Name="servidor" ColumnName="servidor" />
+                <ScalarProperty Name="baseDatos" ColumnName="baseDatos" />
+                <ScalarProperty Name="usuarioBaseDatos" ColumnName="usuarioBaseDatos" />
+                <ScalarProperty Name="passwordBaseDatos" ColumnName="passwordBaseDatos" />
+                <ScalarProperty Name="gerente" ColumnName="gerente" />
+                <ScalarProperty Name="supervisor" ColumnName="supervisor" />
+                <ScalarProperty Name="emailSupervisor" ColumnName="emailSupervisor" />
+                <ScalarProperty Name="regional" ColumnName="regional" />
+                <ScalarProperty Name="emailRegional" ColumnName="emailRegional" />
+                <ScalarProperty Name="latitud" ColumnName="latitud" />
+                <ScalarProperty Name="longitud" ColumnName="longitud" />
+                <ScalarProperty Name="fechaActualizacion" ColumnName="fechaActualizacion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Ninguno" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

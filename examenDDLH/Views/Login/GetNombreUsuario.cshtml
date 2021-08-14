@@ -1,0 +1,22 @@
+﻿@model examenDDLH.Models.ViewModels.ModeloBienvenida
+
+@{
+    ViewBag.Title = "GetNombreUsuario";
+
+
+}
+@using (Html.BeginForm())
+{
+<h2>Hola: @ViewBag.nombreE</h2>
+<h3> Codigoempleado: @ViewBag.codigoE</h3>
+<h4>NombreTienda: @ViewBag.nombreT</h4>
+<h4>CodigoTienda: @ViewBag.codigoT</h4>
+}
+
+
+
+@*if (!String.IsNullOrEmpty(Model.nombreEmpleado))
+    {
+    <h2> Hola :@ViewBag.nombreE</h2>
+    }*@
+
