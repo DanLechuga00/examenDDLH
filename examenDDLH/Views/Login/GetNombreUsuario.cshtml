@@ -1,18 +1,31 @@
-﻿@model examenDDLH.Models.ViewModels.ModeloBienvenida
+﻿@model examenDDLH.Models.ViewModels.ModeloPedido
 
 @{
     ViewBag.Title = "GetNombreUsuario";
 
 
 }
-@using (Html.BeginForm())
-{
+
 <h2>Hola: @ViewBag.nombreE</h2>
 <h3> Codigoempleado: @ViewBag.codigoE</h3>
 <h4>NombreTienda: @ViewBag.nombreT</h4>
 <h4>CodigoTienda: @ViewBag.codigoT</h4>
-}
 
+
+<h1>Formulario:</h1>
+
+@using (Html.BeginForm("enviardatos","Login",method:FormMethod.Post))
+            {
+        <h4>Ingresa el codigo Sku</h4>
+       @Html.TextBox("CodSku",Model.codSku,new { @calss = "from class", @placeholder = "Ingresa el codigo sku"})
+    <br/>
+    <h4>Ingresa la cantadad de pizas</h4>
+    @Html.TextBox("Piezas",Model.piezas,new { @class = "form class", @placeholder = "Ingresa la cantidad"})
+    <br />
+    <br/>
+    <input type="submit", value="Enviar"/>
+            }
+            
 
 
 @*if (!String.IsNullOrEmpty(Model.nombreEmpleado))

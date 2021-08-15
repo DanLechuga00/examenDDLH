@@ -99,14 +99,9 @@ namespace examenDDLH.Controllers
             ViewBag.nombreT = nombreT;
             string codigoa = codigoE.ToString();
             string codigob = codigoT.ToString();
-            ModeloBienvenida datosUsario = new ModeloBienvenida()
-            {
-                codEmpleado = codigoE,
-                codTienda = codigoT,
-                nombreEmpleado = nombreE,
-                nombreTienda = nombreT
-            };
 
+         
+          
          
             return Json(data:codigob+'-'+codigoa+'-'+nombreE+'-'+nombreT);
         }
@@ -117,18 +112,20 @@ namespace examenDDLH.Controllers
             ViewBag.codigoE = arr[1];
             ViewBag.nombreE = arr[2];
             ViewBag.nombreT = arr[3];
-            ModeloBienvenida datosUsario = new ModeloBienvenida()
-            {
-                codEmpleado = int.Parse(arr[1]),
-                codTienda = int.Parse(arr[0]),
-                nombreEmpleado = arr[2],
-                nombreTienda = arr[3]
-            };
-            return View("GetNombreUsuario");
+            ModeloPedido modelo = new ModeloPedido();
+            
+            return View("GetNombreUsuario",modelo);
         }
-        
-   
-       
+
+
+        public ActionResult enviardatos(string codSku,int piezas)
+        {
+            return null;
+        }
+
+
+
+
 
     }
 }

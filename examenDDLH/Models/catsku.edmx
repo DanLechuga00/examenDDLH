@@ -1,0 +1,124 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="examenModelcatsku.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="genskuscat">
+          <Key>
+            <PropertyRef Name="sku" />
+          </Key>
+          <Property Name="sku" Type="int" Nullable="false" />
+          <Property Name="codigoProveedor" Type="numeric" Precision="6" Scale="0" Nullable="false" />
+          <Property Name="Estilo" Type="varchar" MaxLength="15" Nullable="false" />
+          <Property Name="descripcionEstilo" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="estatus" Type="varchar" MaxLength="1" Nullable="false" />
+          <Property Name="precioOriginal" Type="numeric" Precision="11" Scale="3" Nullable="false" />
+          <Property Name="tipoProducto" Type="varchar" MaxLength="2" Nullable="false" />
+          <Property Name="codigoDepto" Type="numeric" Precision="3" Scale="0" Nullable="false" />
+          <Property Name="codigoSubDepto" Type="numeric" Precision="3" Scale="0" Nullable="false" />
+          <Property Name="codigoClase" Type="numeric" Precision="3" Scale="0" Nullable="false" />
+          <Property Name="codigoSubClase" Type="numeric" Precision="3" Scale="0" Nullable="false" />
+          <Property Name="descripcionCorta" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="fechaCreacion" Type="date" />
+          <Property Name="codigoTA" Type="varchar" MaxLength="2" Nullable="false" />
+          <Property Name="codigoTalla" Type="varchar" MaxLength="4" Nullable="false" />
+          <Property Name="codigoColor" Type="numeric" Precision="4" Scale="0" Nullable="false" />
+          <Property Name="codigoUnidadDeMedida" Type="varchar" MaxLength="3" Nullable="false" />
+          <Property Name="codigoTemporada" Type="varchar" MaxLength="3" Nullable="false" />
+          <Property Name="codigoMarca" Type="int" Nullable="false" />
+          <Property Name="fechaActualizacion" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityContainer Name="examenModelcatskuStoreContainer">
+          <EntitySet Name="genskuscat" EntityType="Self.genskuscat" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="examenModelcatsku" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="genskuscat">
+          <Key>
+            <PropertyRef Name="sku" />
+          </Key>
+          <Property Name="sku" Type="Int32" Nullable="false" />
+          <Property Name="codigoProveedor" Type="Decimal" Precision="6" Scale="0" Nullable="false" />
+          <Property Name="Estilo" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="descripcionEstilo" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="estatus" Type="String" MaxLength="1" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="precioOriginal" Type="Decimal" Precision="11" Scale="3" Nullable="false" />
+          <Property Name="tipoProducto" Type="String" MaxLength="2" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="codigoDepto" Type="Decimal" Precision="3" Scale="0" Nullable="false" />
+          <Property Name="codigoSubDepto" Type="Decimal" Precision="3" Scale="0" Nullable="false" />
+          <Property Name="codigoClase" Type="Decimal" Precision="3" Scale="0" Nullable="false" />
+          <Property Name="codigoSubClase" Type="Decimal" Precision="3" Scale="0" Nullable="false" />
+          <Property Name="descripcionCorta" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="fechaCreacion" Type="DateTime" Precision="0" />
+          <Property Name="codigoTA" Type="String" MaxLength="2" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="codigoTalla" Type="String" MaxLength="4" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="codigoColor" Type="Decimal" Precision="4" Scale="0" Nullable="false" />
+          <Property Name="codigoUnidadDeMedida" Type="String" MaxLength="3" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="codigoTemporada" Type="String" MaxLength="3" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="codigoMarca" Type="Int32" Nullable="false" />
+          <Property Name="fechaActualizacion" Type="DateTime" Nullable="false" Precision="3" />
+        </EntityType>
+        <EntityContainer Name="examenEntities3" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="genskuscat" EntityType="Self.genskuscat" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="examenModelcatskuStoreContainer" CdmEntityContainer="examenEntities3">
+          <EntitySetMapping Name="genskuscat">
+            <EntityTypeMapping TypeName="examenModelcatsku.genskuscat">
+              <MappingFragment StoreEntitySet="genskuscat">
+                <ScalarProperty Name="sku" ColumnName="sku" />
+                <ScalarProperty Name="codigoProveedor" ColumnName="codigoProveedor" />
+                <ScalarProperty Name="Estilo" ColumnName="Estilo" />
+                <ScalarProperty Name="descripcionEstilo" ColumnName="descripcionEstilo" />
+                <ScalarProperty Name="estatus" ColumnName="estatus" />
+                <ScalarProperty Name="precioOriginal" ColumnName="precioOriginal" />
+                <ScalarProperty Name="tipoProducto" ColumnName="tipoProducto" />
+                <ScalarProperty Name="codigoDepto" ColumnName="codigoDepto" />
+                <ScalarProperty Name="codigoSubDepto" ColumnName="codigoSubDepto" />
+                <ScalarProperty Name="codigoClase" ColumnName="codigoClase" />
+                <ScalarProperty Name="codigoSubClase" ColumnName="codigoSubClase" />
+                <ScalarProperty Name="descripcionCorta" ColumnName="descripcionCorta" />
+                <ScalarProperty Name="fechaCreacion" ColumnName="fechaCreacion" />
+                <ScalarProperty Name="codigoTA" ColumnName="codigoTA" />
+                <ScalarProperty Name="codigoTalla" ColumnName="codigoTalla" />
+                <ScalarProperty Name="codigoColor" ColumnName="codigoColor" />
+                <ScalarProperty Name="codigoUnidadDeMedida" ColumnName="codigoUnidadDeMedida" />
+                <ScalarProperty Name="codigoTemporada" ColumnName="codigoTemporada" />
+                <ScalarProperty Name="codigoMarca" ColumnName="codigoMarca" />
+                <ScalarProperty Name="fechaActualizacion" ColumnName="fechaActualizacion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Ninguno" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

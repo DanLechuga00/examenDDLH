@@ -136,6 +136,24 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\catsku.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>catsku.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\catsku.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>catsku.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\catsku.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>catsku.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\genskuscat.cs">
+      <DependentUpon>catsku.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\gentiendascat.cs">
       <DependentUpon>modellog.tt</DependentUpon>
     </Compile>
@@ -174,6 +192,7 @@
     </Compile>
     <Compile Include="Models\ViewModels\ModeloBienvenida.cs" />
     <Compile Include="Models\ViewModels\ModeloEmpleado.cs" />
+    <Compile Include="Models\ViewModels\ModeloPedido.cs" />
     <Compile Include="Models\ViewModels\ModeloTienda.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -186,6 +205,16 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="Models\catsku.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>catsku.edmx</DependentUpon>
+      <LastGenOutput>catsku.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\catsku.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>catsku.edmx</DependentUpon>
+      <LastGenOutput>catsku.cs</LastGenOutput>
+    </Content>
     <Content Include="Models\Model1.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>Model1.edmx</DependentUpon>
@@ -221,6 +250,13 @@
     </EntityDeploy>
     <Content Include="Models\Model1.edmx.diagram">
       <DependentUpon>Model1.edmx</DependentUpon>
+    </Content>
+    <EntityDeploy Include="Models\catsku.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>catsku.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\catsku.edmx.diagram">
+      <DependentUpon>catsku.edmx</DependentUpon>
     </Content>
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
