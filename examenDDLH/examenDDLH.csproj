@@ -194,6 +194,7 @@
     <Compile Include="Models\ViewModels\ModeloEmpleado.cs" />
     <Compile Include="Models\ViewModels\ModeloPedido.cs" />
     <Compile Include="Models\ViewModels\ModeloTienda.cs" />
+    <Compile Include="Models\ViewModels\ModeloInfoSku.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

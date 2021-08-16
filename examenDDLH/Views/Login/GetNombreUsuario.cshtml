@@ -1,8 +1,11 @@
-﻿@model examenDDLH.Models.ViewModels.ModeloPedido
+﻿
+
+@model examenDDLH.Models.ViewModels.ModeloPedido
 
 @{
     ViewBag.Title = "GetNombreUsuario";
 
+    List<SelectListItem> items = (List<SelectListItem>)ViewBag.itemsPedidos;
 
 }
 
@@ -14,18 +17,74 @@
 
 <h1>Formulario:</h1>
 
-@using (Html.BeginForm("enviardatos","Login",method:FormMethod.Post))
-            {
-        <h4>Ingresa el codigo Sku</h4>
-       @Html.TextBox("CodSku",Model.codSku,new { @calss = "from class", @placeholder = "Ingresa el codigo sku"})
-    <br/>
-    <h4>Ingresa la cantadad de pizas</h4>
-    @Html.TextBox("Piezas",Model.piezas,new { @class = "form class", @placeholder = "Ingresa la cantidad"})
+@using (Html.BeginForm("enviardatos", "Login", method: FormMethod.Post))
+{
+    <h4>Ingresa el codigo Sku</h4>
+    @Html.DropDownList("skus", items, new { @class = "form-control" });
+
+<div id="producto"></div>
     <br />
-    <br/>
-    <input type="submit", value="Enviar"/>
+    <h4>Ingresa la cantadad de pizas</h4>
+    @Html.TextBox("Piezas", Model.piezas, new { @class = "form class", @placeholder = "Ingresa la cantidad" })
+    <br />
+    <br />
+
+
+    <div id="total"></div>
+    <input type="submit" , value="Enviar" />
+}
+<script type="text/javascript">
+
+    $("#skus").change(function () {
+            console.log("codSku: " + $("skus").val())
+           $.ajax({
+               type : 'POST',
+                url : '@Url.Action("GetInfo","Login")',
+                dataType: 'json',
+                data: { codsku: $("#skus").val() },
+                success: function (data) {
+                    console.log("data:" + data)
+                    var arr = data.split('-')
+                    var sku = arr[0]
+                    var desc = arr[1]
+                    var precio = arr[2]
+                    $("#producto").html("Sku:" + sku + "<br/>" + "Descripcion:" + desc + "<br/>" + "Precio:" + precio)
+
+                },
+                error: function (ex) {
+                    alert('algo salio mal con la informacion' + ex.status)
+                }
+            });
+
+            return false;
+    });
+    $("#Piezas").change(function () {
+        console.log("Cantidad:" + $("#Piezas").val())
+        
+        if ($("#Piezas").val() <=0) {
+            console.log("No se puede ingresar valores negativos")
+            alert('No se puede ingresar valores negativos o nulos')
+            return false;
+        }
+        $.ajax({
+            type: 'POST',
+            url: '@Url.Action("GetTotal","Login")',
+            dataType: 'json',
+            data: { cantidad: $("#Piezas").val(), codsku: $("#skus").val() },
+            success: function (data) {
+                if (data != null) console.log(data)
+                $("#total").html("Total a pagar: $"+data);
+
+            },
+            error: function (ex) {
+                alert('Algo salio mal con las piezas:' + ex.status)
             }
-            
+
+        });
+        return false;
+    });
+
+</script>
 
 
 @*if (!String.IsNullOrEmpty(Model.nombreEmpleado))

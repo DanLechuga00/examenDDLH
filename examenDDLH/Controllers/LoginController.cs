@@ -10,6 +10,8 @@ namespace examenDDLH.Controllers
     public class LoginController : Controller
     {
         public List<ModeloTienda> lista { get; set; }
+        public List<ModeloPedido> listaPedidos { get; set; }
+        public List<ModeloInfoSku> infoSkus { get; set; }
         // GET: Login 
         public ActionResult Index()
         {
@@ -105,6 +107,77 @@ namespace examenDDLH.Controllers
          
             return Json(data:codigob+'-'+codigoa+'-'+nombreE+'-'+nombreT);
         }
+
+        public JsonResult GetInfo(int codsku)
+        {
+            String[] arr = null;
+            try
+            {
+                if (infoSkus == null)
+                {
+                    using (Models.examenEntities3 db = new Models.examenEntities3())
+                    {
+                        infoSkus = (from d in db.genskuscat
+                                    where d.sku == codsku
+                                    select new ModeloInfoSku()
+                                    {
+                                        codSku = d.sku.ToString(),
+                                        descripcion = d.descripcionCorta,
+                                        precioUnitario = d.precioOriginal
+                                    }).ToList();
+
+                    }
+                    if (infoSkus.Count == 0) throw new Exception("No se encontro informacion");
+            
+                    arr = new string[infoSkus.Count];
+                    foreach (var item in infoSkus)
+                    {
+                        for (int i = 0; i < arr.Length; i++)
+                        {
+                            arr[i] = item.codSku + "-" + item.descripcion + "-" + item.precioUnitario;
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+           
+
+
+            return Json(data: arr[0]);
+        }
+
+
+        public JsonResult GetTotal(int cantidad, int codsku)
+        {
+            decimal iva = 0M, resultado = 0M;
+            if (infoSkus == null)
+            {
+                using (Models.examenEntities3 db = new Models.examenEntities3())
+                {
+                    infoSkus = (from d in db.genskuscat
+                                where d.sku == codsku
+                                select new ModeloInfoSku()
+                                {
+                                    codSku = d.sku.ToString(),
+                                    descripcion = d.descripcionCorta,
+                                    precioUnitario = d.precioOriginal
+                                }).ToList();
+
+                }
+                foreach (var item in infoSkus)
+                {
+                    iva  = (item.precioUnitario * cantidad)* 0.3M;
+                    resultado = (item.precioUnitario * cantidad) + iva;
+                }
+            }
+            
+
+            return Json(resultado);
+        }
         public ActionResult IndexUsuario(string text)
         {
             String[] arr = text.Split('-');
@@ -113,6 +186,27 @@ namespace examenDDLH.Controllers
             ViewBag.nombreE = arr[2];
             ViewBag.nombreT = arr[3];
             ModeloPedido modelo = new ModeloPedido();
+            if(listaPedidos == null)
+            {
+                using (Models.examenEntities3 db = new Models.examenEntities3())
+                {
+                    listaPedidos = (from d in db.genskuscat where d.sku > 0 && d.sku<100
+                                    select new ModeloPedido
+                                    {
+                                        codSku = d.sku.ToString()
+                                        
+                                    }).ToList();
+                }
+                List<SelectListItem> itemsp = listaPedidos.ConvertAll(a => {
+                    return new SelectListItem()
+                    {
+                        Value = a.codSku,
+                        Text = a.codSku
+                    };
+                
+                });
+                ViewBag.itemsPedidos = itemsp;
+            }
             
             return View("GetNombreUsuario",modelo);
         }

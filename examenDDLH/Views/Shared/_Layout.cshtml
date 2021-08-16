@@ -44,57 +44,58 @@
    
     <script type="text/javascript">
 
-    $("#tiendas").change(function () {
-        console.log("CodigoT:" + $("#tiendas").val())
-        console.log("NombreT:" + $('select[name="tiendas"] option:selected').text());
+        $("#tiendas").change(function () {
+            console.log("CodigoT:" + $("#tiendas").val())
+            console.log("NombreT:" + $('select[name="tiendas"] option:selected').text());
 
-        $("#usuarios").empty();
-        $.ajax({
-            type: 'POST',
-            url: '@Url.Action("GetUsuarios", "Login")',
+            $("#usuarios").empty();
+            $.ajax({
+                type: 'POST',
+                url: '@Url.Action("GetUsuarios", "Login")',
 
-            dataType: 'json',
+                dataType: 'json',
 
-            data: { codigoTienda: $("#tiendas").val() },
-
-
-            success: function (states) {
+                data: { codigoTienda: $("#tiendas").val() },
 
 
-                $.each(states, function (i, state) {
-                    $("#usuarios").append('<option value="' + state.Value + '">' +
-                        state.Text + '</option>');
+                success: function (states) {
 
 
-                });
-            },
-            error: function (ex) {
-                alert('Failed to retrieve users.' + ex);
-            }
+                    $.each(states, function (i, state) {
+                        $("#usuarios").append('<option value="' + state.Value + '">' +
+                            state.Text + '</option>');
+
+
+                    });
+                },
+                error: function (ex) {
+                    alert('Failed to retrieve users.' + ex);
+                }
+            });
+            return false;
         });
-        return false;
-    })
-    $("#usuarios").change(function () {
-        console.log("CodigoE:" + $("#usuarios").val())
-        console.log("NombreE:" + $('select[name="usuarios"] option:selected').text());
-        $.ajax({
-            type: 'POST',
-            url: '@Url.Action("GetNombreUsuario","Login")',
-            dataType: 'json',
-            data: { codigoT: $("#tiendas").val(), nombreT: $('select[name="tiendas"] option:selected').text(), codigoE: $("#usuarios").val(), nombreE: $('select[name="usuarios"] option:selected').text() },
-            success: function (data) {
-                console.log("data:" + data)
+        $("#usuarios").change(function () {
+            console.log("CodigoE:" + $("#usuarios").val())
+            console.log("NombreE:" + $('select[name="usuarios"] option:selected').text());
+            $.ajax({
+                type: 'POST',
+                url: '@Url.Action("GetNombreUsuario","Login")',
+                dataType: 'json',
+                data: { codigoT: $("#tiendas").val(), nombreT: $('select[name="tiendas"] option:selected').text(), codigoE: $("#usuarios").val(), nombreE: $('select[name="usuarios"] option:selected').text() },
+                success: function (data) {
+                    console.log("data:" + data)
 
-                window.location.href = '@Url.Action("IndexUsuario", "Login")' + '?text=' + data
-            },
-            error: function (ex) {
-                alert('algo salio mal con los usuarios' + ex.status)
-            }
+                    window.location.href = '@Url.Action("IndexUsuario", "Login")' + '?text=' + data
+                },
+                error: function (ex) {
+                    alert('algo salio mal con los usuarios' + ex.status)
+                }
 
 
+            });
+            return false;
         });
-        return false;
-    })
+     
 
     </script>
 </body>
